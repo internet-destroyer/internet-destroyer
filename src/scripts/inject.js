@@ -68,7 +68,9 @@ const ioInterval = setInterval(() => {
           break
       }
 
-      await new Promise(resolve => setTimeout(resolve, 0))
+      await new Promise(resolve =>
+        setTimeout(resolve, a.command === 'shooter' ? 130 : 0)
+      )
     }
   })
 
@@ -110,6 +112,6 @@ const ioInterval = setInterval(() => {
       },
     })
 
-    $('context-menu-list').css('z-index', '999999999')
+    // $('.context-menu-list').css('z-index', '999999999')
   }, 300)
 }, 300)
