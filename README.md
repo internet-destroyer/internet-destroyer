@@ -1,8 +1,8 @@
 # Internet Destroyer
 
-<img src="resources/feature-1.jpg" alt="Feature 1" />
-<img src="resources/feature-2.jpg" alt="Feature 2" />
-<img src="resources/feature-3.jpg" alt="Feature 3" />
+<img src="resources/feature-1.jpg" alt="Feature 1" style="width: 33%" />
+<img src="resources/feature-2.jpg" alt="Feature 2" style="width: 33%" />
+<img src="resources/feature-3.jpg" alt="Feature 3" style="width: 33%" />
 
 # Build Chrome Extension
 
