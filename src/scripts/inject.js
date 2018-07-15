@@ -106,9 +106,9 @@ const ioInterval = setInterval(() => {
         sep1: '---------',
         text: { name: 'Brainwasher', icon: 'fa-font' },
         shooter: { name: 'Lasergun', icon: 'fa-dot-circle-o' },
-        paint: { name: 'Eject Alien Liquid', icon: 'fa-paint-brush' },
+        paint: { name: 'Eject Liquid', icon: 'fa-paint-brush' },
         sep2: '---------',
-        quit: { name: 'Exit Invasion Mode', icon: 'fa-sign-out' },
+        quit: { name: 'Exit Invasion', icon: 'fa-sign-out' },
       },
     })
 
