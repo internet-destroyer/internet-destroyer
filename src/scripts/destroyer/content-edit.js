@@ -1,0 +1,19 @@
+import unique from 'unique-selector'
+
+export default class ContentEdit {
+  static setup(registerChange) {
+    $('body')
+      .on('click', '*', function(e) {
+        $(this).attr('contenteditable', true)
+        e.stopPropagation()
+        e.preventDefault()
+      })
+      .on('input', '*', function(e) {
+        registerChange({
+          selector: unique(this),
+          content: $(this).html(),
+        })
+        e.stopPropagation()
+      })
+  }
+}

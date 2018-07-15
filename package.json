@@ -49,5 +49,13 @@
     "preprocessify": "^1.0.1",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "semi": false,
+    "singleQuote": true
+  },
+  "dependencies": {
+    "unique-selector": "^0.3.6"
   }
 }

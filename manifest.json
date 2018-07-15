@@ -9,28 +9,16 @@
   },
   "default_locale": "en",
   "background": {
-    "scripts": [
-      "scripts/background.js"
-    ]
+    "scripts": ["scripts/background.js"]
   },
-  "permissions": [
-    "tabs",
-    "storage",
-    "http://*/*",
-    "https://*/*"
-  ],
+  "permissions": ["tabs", "storage", "http://*/*", "https://*/*"],
   "options_ui": {
     "page": "options.html"
   },
   "content_scripts": [
     {
-      "matches": [
-        "http://*/*",
-        "https://*/*"
-      ],
-      "js": [
-        "scripts/contentscript.js"
-      ],
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["scripts/contentscript.js"],
       "run_at": "document_end",
       "all_frames": false
     }
@@ -42,7 +30,6 @@
     },
     "default_title": "Extension Boilerplate",
     "default_popup": "popup.html"
-  }
+  },
+  "web_accessible_resources": ["scripts/jquery.js", "scripts/inject.js"]
 }
-
-
