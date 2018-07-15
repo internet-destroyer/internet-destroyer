@@ -1,3 +1,5 @@
+import { default as $ } from 'jquery'
+
 let setData
 let setRegisterChange
 ;(function() {

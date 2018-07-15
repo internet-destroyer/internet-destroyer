@@ -1,5 +1,7 @@
 import unique from 'unique-selector'
 
+import { default as $ } from 'jquery'
+
 export default class ContentEdit {
   static setup(registerChange) {
     $('body')

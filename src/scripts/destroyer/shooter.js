@@ -1,3 +1,5 @@
+import { default as $ } from 'jquery'
+
 function initBomb() {
   var Bomb,
     Explosion,

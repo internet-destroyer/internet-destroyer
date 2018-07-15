@@ -2,7 +2,9 @@ import ContentEdit from './destroyer/content-edit'
 import Shooter from './destroyer/shooter'
 import Paint from './destroyer/paint'
 
-const $ = window.jQuery
+import { default as $ } from 'jquery'
+
+window.$ = $
 
 function ModeSelect() {
   const $modeWrapper = $('<div id="intruder"></div>').css({
