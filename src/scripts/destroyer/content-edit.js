@@ -9,11 +9,15 @@ export default class ContentEdit {
         e.preventDefault()
       })
       .on('input', '*', function(e) {
-        registerChange({
+        registerChange('text', {
           selector: unique(this),
           content: $(this).html(),
         })
         e.stopPropagation()
       })
+  }
+
+  static act({ selector, content }) {
+    $(selector).html(content)
   }
 }

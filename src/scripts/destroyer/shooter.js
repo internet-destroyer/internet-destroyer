@@ -172,7 +172,7 @@ function initBomb() {
   this.Particle = Particle
 
   Bomb = (function() {
-    Bomb.SIZE = 50
+    Bomb.SIZE = 20
 
     function Bomb(x, y) {
       this.countDown = __bind(this.countDown, this)
@@ -190,8 +190,26 @@ function initBomb() {
     Bomb.prototype.drop = function() {
       this.bomb = document.createElement('div')
       this.bomb.innerHTML = this.count
-      // this.body.appendChild(this.bomb)
+      this.body.appendChild(this.bomb)
+      this.bomb.style['opacity'] = '0'
       this.bomb.style['zIndex'] = '9999'
+      this.bomb.style['fontFamily'] = 'verdana'
+      this.bomb.style['width'] = '' + Bomb.SIZE + 'px'
+      this.bomb.style['height'] = '' + Bomb.SIZE + 'px'
+      this.bomb.style['display'] = 'block'
+      this.bomb.style['borderRadius'] = '' + Bomb.SIZE + 'px'
+      this.bomb.style['WebkitBorderRadius'] = '' + Bomb.SIZE + 'px'
+      this.bomb.style['MozBorderRadius'] = '' + Bomb.SIZE + 'px'
+      this.bomb.style['fontSize'] = '18px'
+      this.bomb.style['color'] = '#fff'
+      this.bomb.style['lineHeight'] = '' + Bomb.SIZE + 'px'
+      this.bomb.style['background'] = '#79ff3f'
+      this.bomb.style['position'] = 'absolute'
+      this.bomb.style['top'] = '' + (this.pos.y - Bomb.SIZE / 2) + 'px'
+      this.bomb.style['left'] = '' + (this.pos.x - Bomb.SIZE / 2) + 'px'
+      this.bomb.style['textAlign'] = 'center'
+      this.bomb.style['WebkitUserSelect'] = 'none'
+      this.bomb.style['font-weight'] = 700
       return setTimeout(() => {
         this.explose()
       }, 200)
@@ -206,7 +224,7 @@ function initBomb() {
       this.state = 'exploded'
       this.bomb.innerHTML = ''
       this.bomb.style['fontSize'] = '12px'
-      return (this.bomb.style['opacity'] = 0.05)
+      return (this.bomb.style['opacity'] = 0.1)
     }
 
     return Bomb
@@ -216,6 +234,7 @@ function initBomb() {
 
   Explosion = (function() {
     function Explosion() {
+      this.activated = false
       this.tick = __bind(this.tick, this)
       this.dropBomb = __bind(this.dropBomb, this)
       var char,
@@ -229,7 +248,9 @@ function initBomb() {
       this.bombs = []
       this.body = document.getElementsByTagName('body')[0]
       if ((_ref2 = this.body) != null) {
-        _ref2.onclick = function(event) {
+        _ref2.onclick = event => {
+          console.log('Click activated', this.activated)
+          if (!this.activated) return false
           return _this.dropBomb(event)
         }
       }
@@ -256,6 +277,18 @@ function initBomb() {
         return _results
       }.call(this)
       this.tick()
+    }
+
+    Explosion.prototype.setActivate = function(registerChange) {
+      this.registerChange = registerChange
+      this.activated = !!registerChange
+
+      if (registerChange) {
+        $('*').css(
+          'cursor',
+          'url(https://github.com/smiled0g/internet-destroyer/raw/master/resources/arm-target.png) 32 32, pointer'
+        )
+      }
     }
 
     Explosion.prototype.explosifyNodes = function(nodes) {
@@ -348,7 +381,12 @@ function initBomb() {
     Explosion.prototype.dropBomb = function(event) {
       var pos
       pos = window.findClickPos(event)
-      this.bombs.push(new Bomb(pos.x, pos.y))
+      this.registerChange('shooter', { x: pos.x, y: pos.y })
+      this.dropBombXY(pos.x, pos.y)
+    }
+
+    Explosion.prototype.dropBombXY = function(x, y) {
+      this.bombs.push(new Bomb(x, y))
       if (window.FONTBOMB_PREVENT_DEFAULT) return event.preventDefault()
     }
 
@@ -382,11 +420,29 @@ function initBomb() {
     return Explosion
   })()
 
-  new Explosion()
+  return new Explosion()
 }
+
+const context = {}
+let explosion = null
 
 export default class Shooter {
   static setup(registerChange) {
-    initBomb.call(this)
+    if (!explosion) {
+      explosion = initBomb.call(context)
+    }
+    explosion.setActivate(registerChange)
+
+    $('body').on('click', '*', function(e) {
+      e.stopPropagation()
+      e.preventDefault()
+    })
+  }
+
+  static act({ x, y }) {
+    if (!explosion) {
+      explosion = initBomb.call(context)
+    }
+    explosion.dropBombXY(x, y)
   }
 }

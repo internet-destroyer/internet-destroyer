@@ -28,7 +28,7 @@
       "19": "icons/icon-19.png",
       "38": "icons/icon-38.png"
     },
-    "default_title": "Extension Boilerplate",
+    "default_title": "INTERNET DESTROYER",
     "default_popup": "popup.html"
   },
   "web_accessible_resources": ["scripts/jquery.js", "scripts/inject.js"]
