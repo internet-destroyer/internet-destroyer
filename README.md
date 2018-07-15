@@ -1,18 +1,22 @@
 # Internet Destroyer
 
-Death weeks early had their and folly timed put. Hearted forbade on an village ye in fifteen. Age attended betrayed her man raptures laughter. Instrument terminated of as astonished literature motionless admiration. The affection are determine how performed intention discourse but. On merits on so valley indeed assure of. Has add particular boisterous uncommonly are. Early wrong as so manor match. Him necessary shameless discovery consulted one but.
+<img src="resources/feature-1.jpg" alt="Feature 1" />
+<img src="resources/feature-2.jpg" alt="Feature 2" />
+<img src="resources/feature-3.jpg" alt="Feature 3" />
 
-# Chrome Extension
-
-Build it yourself
-
-# Build
+# Build Chrome Extension
 
 ```
 yarn install
-yarn watch-chrome
+yarn chrome-watch
 ```
+
+# Install in Dev mode
+
+https://stackoverflow.com/questions/24577024/install-chrome-extension-not-in-the-store
+
+**Load unpack module** (see link below) from `internet-destroyer\build\chrome`.
 
 # Invasion Plan
 
-Do it at your own pleasure!
+Do it at your own pleasure! The more the better!
