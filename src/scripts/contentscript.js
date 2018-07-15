@@ -34,7 +34,7 @@ function onRequest(request, sender, sendResponse) {
 }
 
 function loadScript(script) {
-  return new Proimise(resolve => {
+  return new Promise(resolve => {
     var s = document.createElement('script')
     s.src = ext.extension.getURL(script)
     s.onload = function() {
