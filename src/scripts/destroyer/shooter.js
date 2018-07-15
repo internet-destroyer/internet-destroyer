@@ -212,7 +212,7 @@ function initBomb() {
       this.bomb.style['font-weight'] = 700
       return setTimeout(() => {
         this.explose()
-      }, 200)
+      }, 0)
     }
 
     Bomb.prototype.explose = function() {
