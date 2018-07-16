@@ -1,0 +1,36 @@
+Arguments: 
+  /home/ubuntu/.nvm/versions/node/v10.6.0/bin/node /usr/local/bin/yarn add socket.io
+
+PATH: 
+  /home/ubuntu/.nvm/versions/node/v10.6.0/bin:/home/ubuntu/bin:/home/ubuntu/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+Yarn version: 
+  1.7.0
+
+Node version: 
+  10.6.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: EACCES: permission denied, scandir '/home/ubuntu/.config/yarn/link'
+
+npm manifest: 
+  {
+    "name": "internet-destroyer",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
